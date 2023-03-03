@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="back_in_stock" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="40" translate="label">
+            <label>Back In Stock</label>
+                <tab>ego</tab>
+            <resource>RLTSquare_BackInStockNotification::rltsquare_backinstocknotification</resource>
+            <group id="in_stock" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="30" translate="label">
+                <label>Back In Stock Configuration</label>
+                <field id="enabled_backinstock" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="30" translate="label" type="select">
+                    <label>Enable Back In Stock Notification</label>
+                    <comment/>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="api_base_url" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="21" translate="label" type="text">
+                    <label>API Base URL</label>
+                    <depends>
+                        <field id="enabled_backinstock" negative="1">0</field>
+                    </depends>
+                </field>
+                <field id="api_auth" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="21" translate="label" type="text">
+                    <label>API Access Token</label>
+                    <depends>
+                        <field id="enabled_backinstock" negative="1">0</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
